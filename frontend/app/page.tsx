@@ -9,7 +9,6 @@ import { calculateRetirement } from "../utils/retirementCalculator";
 import AIPensionChat from "../components/AIPensionChat";
 
 export default function Home() {
-
   // STATE
   const [age, setAge] = useState(25);
   const [monthlyIncome, setMonthlyIncome] = useState(50000);
@@ -29,17 +28,16 @@ export default function Home() {
     currentSavings,
   });
 
-  // UI
   return (
     <main className="min-h-screen bg-slate-100 p-6">
 
-      {/* ✅ REPLACED INPUT SECTION */}
-      <div className="bg-white p-6 rounded-xl shadow mb-6">
-        <h2 className="text-lg font-semibold text-gray-800">
+      {/* 🔹 YOUR DETAILS (COMPACT & LEFT ALIGNED) */}
+      <div className="bg-white p-6 rounded-xl shadow mb-6 max-w-xl">
+        <h2 className="text-lg font-semibold mb-4 text-gray-800">
           Your Details
         </h2>
 
-        <div className="mt-4 space-y-4">
+        <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Current Age
@@ -48,8 +46,8 @@ export default function Home() {
               type="number"
               value={age}
               onChange={(e) => setAge(Number(e.target.value))}
-              className="w-full border rounded-lg px-4 py-2"
-              placeholder="Enter your age (e.g. 30)"
+              className="w-full h-10 px-3 border rounded-lg"
+              placeholder="e.g. 30"
             />
           </div>
 
@@ -63,8 +61,8 @@ export default function Home() {
               onChange={(e) =>
                 setMonthlyIncome(Number(e.target.value) / 12)
               }
-              className="w-full border rounded-lg px-4 py-2"
-              placeholder="e.g. 500000"
+              className="w-full h-10 px-3 border rounded-lg"
+              placeholder="e.g. 600000"
             />
           </div>
 
@@ -78,16 +76,15 @@ export default function Home() {
               onChange={(e) =>
                 setCurrentSavings(Number(e.target.value))
               }
-              className="w-full border rounded-lg px-4 py-2"
-              placeholder="e.g. 2000000"
+              className="w-full h-10 px-3 border rounded-lg"
+              placeholder="e.g. 200000"
             />
           </div>
         </div>
       </div>
 
-      {/* DASHBOARD */}
+      {/* 🔹 DASHBOARD */}
       <div className="max-w-3xl mx-auto space-y-6">
-
         <ScoreCircle score={score} risk={risk} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -110,7 +107,6 @@ export default function Home() {
         />
 
         <AIPensionChat />
-
       </div>
     </main>
   );
